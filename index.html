@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sprawdź, zanim klikniesz: linki i hasła</title>
+  <meta name="description" content="Sprawdzacz linków pod kątem phishingu i kalkulator czasu łamania hasła. Działa w przeglądarce, nic nie wysyła do sieci.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Sprawdź, zanim klikniesz</h1>
+      <p class="lead">Dwa narzędzia, które działają w twojej przeglądarce. Nic, co wpiszesz, nie jest nigdzie wysyłane.</p>
+    </header>
+
+    <div class="tabs" role="tablist" aria-label="Narzędzia">
+      <button role="tab" id="tab-link" aria-controls="panel-link" aria-selected="true">Sprawdzacz linków</button>
+      <button role="tab" id="tab-pass" aria-controls="panel-pass" aria-selected="false" tabindex="-1">Kalkulator hasła</button>
+    </div>
+
+    <section id="panel-link" role="tabpanel" aria-labelledby="tab-link">
+      <label for="url">Wklej podejrzany link</label>
+      <div class="row">
+        <input id="url" type="text" inputmode="url" autocomplete="off" spellcheck="false" placeholder="np. https://allegro-paczka.xyz/login">
+        <button id="check" class="primary">Sprawdź link</button>
+      </div>
+      <div id="link-result" aria-live="polite"></div>
+    </section>
+
+    <section id="panel-pass" role="tabpanel" aria-labelledby="tab-pass" hidden>
+      <label for="pw">Wpisz hasło do sprawdzenia</label>
+      <div class="row">
+        <input id="pw" type="password" autocomplete="off" spellcheck="false" placeholder="Wpisz hasło">
+        <label class="toggle"><input id="show" type="checkbox"> Pokaż</label>
+      </div>
+      <p class="note">Najlepiej sprawdzaj hasła podobne do swoich, a nie to, którego naprawdę używasz.</p>
+      <div id="pass-result" aria-live="polite"></div>
+    </section>
+
+    <footer>
+      <p>Wyniki to szacunek na podstawie typowych sztuczek oszustów i prostych obliczeń. Nie zastępują ostrożności: jeśli coś wygląda dziwnie, wejdź na stronę ręcznie, wpisując adres, który znasz.</p>
+    </footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
